@@ -9,10 +9,9 @@ class Form extends Component {
     errors: {}
   };
 
-  validate = e => {
+  validate = () => {
     const options = { abortEarly: false };
     const { error } = Joi.validate(this.state.data, this.schema, options);
-
     if (!error) return null;
 
     const errors = {};
@@ -32,9 +31,8 @@ class Form extends Component {
 
     const errors = this.validate();
     this.setState({ errors: errors || {} });
-    if (errors) {
-      return;
-    }
+    if (errors) return;
+
     this.doSubmit();
   };
 
@@ -46,16 +44,13 @@ class Form extends Component {
 
     const data = { ...this.state.data };
     data[input.name] = input.value;
+
     this.setState({ data, errors });
   };
 
   renderButton(label) {
     return (
-      <button
-        disabled={this.validate()}
-        type="submit"
-        className="btn btn-primary"
-      >
+      <button disabled={this.validate()} className="btn btn-primary">
         {label}
       </button>
     );
@@ -63,6 +58,7 @@ class Form extends Component {
 
   renderSelect(name, label, options) {
     const { data, errors } = this.state;
+
     return (
       <Select
         name={name}
@@ -77,26 +73,16 @@ class Form extends Component {
 
   renderInput(name, label, type = "text") {
     const { data, errors } = this.state;
+
     return (
       <Input
         type={type}
-        value={data[name]}
         name={name}
+        value={data[name]}
         label={label}
         onChange={this.handleChange}
         error={errors[name]}
       />
-    );
-  }
-
-  renderButton(lebel) {
-    return (
-      <button
-        className="btn btn-primary btn-lg"
-        //onClick={() => history.push("/movies")}
-      >
-        {lebel}
-      </button>
     );
   }
 }
