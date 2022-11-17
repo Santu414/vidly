@@ -1,7 +1,6 @@
 import React from "react";
-import De from "prop-types";
 const ListGroup = (props) => {
-  const { items, textPerporty, valueProperty, onItemSelect, selectedItem } =
+  const { items, textProperty, valueProperty, onItemSelect, selectedItem } =
     props;
   return (
     <ul className="list-group">
@@ -10,10 +9,10 @@ const ListGroup = (props) => {
           onClick={() => onItemSelect(item)}
           key={item[valueProperty]}
           className={
-            item === selectedItem ? "list-group-item active" : "list-group-item"
+            selectedItem === item ? "list-group-item active" : "list-group-item"
           }
         >
-          {item[textPerporty]}
+          {item[textProperty]}
         </li>
       ))}
     </ul>
@@ -21,7 +20,7 @@ const ListGroup = (props) => {
 };
 
 ListGroup.defaultProps = {
-  textPerporty: "name",
+  textProperty: "name",
   valueProperty: "_id",
 };
 
