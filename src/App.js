@@ -6,6 +6,7 @@ import Customers from "./components/Customers";
 import Rentals from "./components/Rentals";
 import NotFound from "./components/NotFound";
 import Navbar from "./components/Navbar";
+import MovieForm from "./components/MovieForm";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <main className="container">
         <Routes>
           <Route path="/movies" element={<Movies />}></Route>
+          <Route path="/movies/:id" element={<MovieForm />}></Route>
           <Route path="/customers" element={<Customers />}></Route>
           <Route path="/rentals" element={<Rentals />}></Route>
           <Route path="/not-found" element={<NotFound />}></Route>
