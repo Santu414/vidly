@@ -7,6 +7,7 @@ import Rentals from "./components/Rentals";
 import NotFound from "./components/NotFound";
 import Navbar from "./components/Navbar";
 import MovieForm from "./components/MovieForm";
+import LoginForm from "./components/LoginForm";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/movies/:id" element={<MovieForm />}></Route>
           <Route path="/customers" element={<Customers />}></Route>
           <Route path="/rentals" element={<Rentals />}></Route>
+          <Route path="/login" element={<LoginForm />}></Route>
           <Route path="/not-found" element={<NotFound />}></Route>
           <Route path="/" element={<Navigate to="/movies" />} />
           <Route path="*" element={<NotFound />}></Route>
