@@ -1,19 +1,34 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 
-export class LoginForm extends Component {
+class LoginForm extends Component {
+  username = React.createRef();
+  componentDidMount() {
+    this.username.current.focus();
+  }
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Submitted");
+  };
   render() {
     return (
       <div>
         <h1>Login</h1>
-        <form>
-          <div class="form-group">
+        <form onClick={this.handleSubmit}>
+          <div className="form-group">
             <label htmlFor="username">Username</label>
-            <input id="username" type="text" class="form-control" />
+            <input
+              ref={this.username}
+              id="username"
+              type="text"
+              className="form-control"
+            />
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <label htmlFor="password">Password</label>
-            <input id="password" type="text" class="form-control" />
+            <input id="password" type="text" className="form-control" />
           </div>
+          <br />
+          <button className="btn btn-md btn-primary">Submit</button>
         </form>
       </div>
     );
