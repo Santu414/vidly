@@ -13,30 +13,15 @@ class LoginForm extends Form {
   };
 
   render() {
-    const { data, errors } = this.state;
     return (
       <div>
         <h1>Login</h1>
         <form onClick={this.handleSubmit}>
-          <Input
-            name="username"
-            value={data.username}
-            label="Username"
-            onChange={this.handleChange}
-            errors={errors.username}
-          />
-          <Input
-            name="password"
-            value={data.password}
-            label="Password"
-            onChange={this.handleChange}
-            errors={errors.password}
-          />
+          {this.renderInput("username", "Username")}
+          {this.renderInput("password", "Password", "password")}
 
           <br />
-          <button disabled={this.validate()} className="btn btn-md btn-primary">
-            Login
-          </button>
+          {this.renderMethod("Login")}
         </form>
       </div>
     );
