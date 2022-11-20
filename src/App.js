@@ -17,7 +17,7 @@ function App() {
       <main className="container">
         <Routes>
           <Route path="/movies" element={<Movies />}></Route>
-          <Route path="/movies/:id" element={<MovieForm />}></Route>
+          <Route path="/movies/new" element={<MovieForm />}></Route>
           <Route path="/customers" element={<Customers />}></Route>
           <Route path="/rentals" element={<Rentals />}></Route>
           <Route path="/login" element={<LoginForm />}></Route>

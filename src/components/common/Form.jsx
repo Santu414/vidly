@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Joi from "joi-browser";
 import Input from "./Input";
+import ListBox from "./ListBox";
 
 class Form extends Component {
   validate = () => {
@@ -56,6 +57,32 @@ class Form extends Component {
         onChange={this.handleChange}
         errors={errors[name]}
       />
+    );
+  };
+
+  renderListBox = (name, label, options) => {
+    const { data, errors } = this.state;
+    return (
+      <ListBox
+        name={name}
+        label={label}
+        options={options}
+        value={data[name]}
+        error={errors[name]}
+        onChange={this.handleChange}
+      />
+    );
+  };
+
+  renderButton = (label) => {
+    return (
+      <button
+        onClick={this.handleSubmit}
+        disabled={this.validate()}
+        className="btn btn-primary"
+      >
+        {label}
+      </button>
     );
   };
 
