@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Joi from "joi-browser";
 import Input from "./Input";
-import ListBox from "./ListBox";
+import Select from "./Select";
 
 class Form extends Component {
   validate = () => {
@@ -60,19 +60,20 @@ class Form extends Component {
     );
   };
 
-  renderListBox = (name, label, options) => {
+  renderSelect(name, label, options) {
     const { data, errors } = this.state;
+
     return (
-      <ListBox
+      <Select
         name={name}
+        value={data[name]}
         label={label}
         options={options}
-        value={data[name]}
-        error={errors[name]}
         onChange={this.handleChange}
+        error={errors[name]}
       />
     );
-  };
+  }
 
   renderButton = (label) => {
     return (
