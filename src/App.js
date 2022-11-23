@@ -19,14 +19,14 @@ class App extends Component {
     try {
       const jwt = localStorage.getItem("token");
       const user = jwtDecode(jwt);
-      this.setState({ user });
+      this.setState({ user: user });
     } catch (ex) {}
   }
   render() {
     return (
       <>
         <ToastContainer />
-        <Navbar />
+        <Navbar user={this.state.user} />
         <main className="container">
           <Switch>
             <Route path="/register" component={RegisterForm} />
