@@ -86,11 +86,6 @@ class Form extends Component {
       </button>
     );
   };
-
-  doSubmit = () => {
-    //Call top server
-    console.log("Submitted");
-  };
 }
 
 export default Form;
