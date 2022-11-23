@@ -1,6 +1,6 @@
-import "./App.css";
+import React from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
-
+import { ToastContainer } from "react-toastify";
 import Movies from "./components/Movies";
 import Customers from "./components/Customers";
 import Rentals from "./components/Rentals";
@@ -9,10 +9,13 @@ import Navbar from "./components/Navbar";
 import MovieForm from "./components/MovieForm";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
+import "react-toastify/dist/ReactToastify.css";
+import "./App.css";
 
 function App() {
   return (
     <>
+      <ToastContainer />
       <Navbar />
       <main className="container">
         <Switch>
